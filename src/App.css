@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  border: solid 1px;
+  height: 100dvh;
+  width: 100dvw;
+}
+
+
+
+.map {
+  background-color: powderblue;
+  width: 100dvw;
+  height: 90dvh;
+}
+
+
+
+
+
+
+
