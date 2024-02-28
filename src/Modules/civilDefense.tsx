@@ -106,5 +106,3 @@ export function civilDefenseLayerCheckbox({
 }
 
 export default civilDefenseLayerCheckbox
-
-//Currently creates a handleClick function everytime the checkbox is created
