@@ -85,6 +85,7 @@ export function emergencyShelterCheckbox({
     // Function to handle pointer move over a shelter feature
     let lastHoveredFeature: Feature | undefined;
 //When hovering over a point feature, changed the styling to the hover style
+//Currently also a bug, where if you have both layers checked, if you are hovering over the civil defense layer, it deletes the regions
 const handlePointerMove = (e: MapBrowserEvent<PointerEvent>) => {
     const pixel = map.getEventPixel(e.originalEvent);
     const feature = map.forEachFeatureAtPixel(pixel, (f) => f) as Feature;
