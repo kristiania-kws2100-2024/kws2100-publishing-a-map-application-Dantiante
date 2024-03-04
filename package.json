@@ -9,7 +9,8 @@
     "check": "prettier --check . && tsc --noEmit",
     "prepare": "husky",
     "test": "prettier --check . && tsc --noEmit",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
     "ol": "^8.2.0",
