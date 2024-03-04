@@ -69,7 +69,7 @@ const emergencyShelterLayer = new VectorLayer ({
 
 
 //Makes a new layer on top of the last layer, also removes it once unchecked
-export function emergencyShelterCheckbox({
+export function useEmergencyShelterCheckbox({
     map,
     setLayers,
     layers,
@@ -82,8 +82,9 @@ export function emergencyShelterCheckbox({
     const overlay = useMemo (() => new Overlay({}), []);
     const overlayRef = useRef() as MutableRefObject<HTMLDivElement>;
 
-    // Function to handle pointer move over a shelter feature
-    let lastHoveredFeature: Feature | undefined;
+    //Function to handle pointer move over a shelter feature
+    let lastHoveredPointFeature: Feature | undefined;
+
 //When hovering over a point feature, changed the styling to the hover style
 //Currently also a bug, where if you have both layers checked, if you are hovering over the civil defense layer, it deletes the regions
 const handlePointerMove = (e: MapBrowserEvent<PointerEvent>) => {
@@ -93,21 +94,22 @@ const handlePointerMove = (e: MapBrowserEvent<PointerEvent>) => {
     if (feature) {
         feature.setStyle(hoverShelterStyle(feature));
         overlay.setPosition(e.coordinate);
-        lastHoveredFeature = feature;
+        lastHoveredPointFeature = feature;
     } else {
-        if (lastHoveredFeature) {
-            lastHoveredFeature.setStyle(defaultShelterStyle(lastHoveredFeature));
-            lastHoveredFeature = undefined;
+        if (lastHoveredPointFeature) {
+            lastHoveredPointFeature.setStyle(defaultShelterStyle(lastHoveredPointFeature));
+            lastHoveredPointFeature = undefined;
         }
         overlay.setPosition(undefined);
     }
 };
+
 //Changes it back to default style once you are no longer hovering over a feature
     const handlePointerLeave = () => {
         map.getViewport().style.cursor = '';
-        if (lastHoveredFeature) {
-            lastHoveredFeature.setStyle(defaultShelterStyle(lastHoveredFeature));
-            lastHoveredFeature = undefined;
+        if (lastHoveredPointFeature) {
+            lastHoveredPointFeature.setStyle(defaultShelterStyle(lastHoveredPointFeature));
+            lastHoveredPointFeature = undefined;
         }
         overlay.setPosition(undefined);
     };
@@ -157,7 +159,7 @@ useEffect(() => {
 //If you click on the features, you get the data into the console log
     function handleClickEmergencyShelter(e: MapBrowserEvent<MouseEvent>) {
         map.forEachFeatureAtPixel(e.pixel, function(olFeature){
-            var getGeoJSONData = olFeature.getProperties() as emergencyShelterProperties;
+            const getGeoJSONData = olFeature.getProperties() as emergencyShelterProperties;
 
             const romnr = getGeoJSONData.romnr;
             const plasser = getGeoJSONData.plasser;
@@ -169,7 +171,7 @@ useEffect(() => {
         }, {
             hitTolerance: 5
         });    
-    };
+    }
 
     return (
         <div className="emergencyShelterOverlay">
@@ -185,4 +187,4 @@ useEffect(() => {
     )
 }
 
-export default emergencyShelterCheckbox;
+export default useEmergencyShelterCheckbox;
