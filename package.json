@@ -8,7 +8,8 @@
     "build": "npm test && vite build",
     "check": "prettier --check . && tsc --noEmit",
     "prepare": "husky",
-    "test": "prettier --check . && tsc --noEmit"
+    "test": "prettier --check . && tsc --noEmit",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "ol": "^8.2.0",
