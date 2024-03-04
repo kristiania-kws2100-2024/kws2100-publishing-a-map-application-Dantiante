@@ -19,20 +19,22 @@ const civilDefenseSource = new VectorSource<civilDefenseFeature>({
     url: "/Sivilforsvarsdistrikter.geojson",
     format: new GeoJSON(),
 });
+
 //Create a new style
-const polygonStyle = (feature?: Feature<Polygon>) => {
-    return new Style ({
-        image: new RegularShape ({
-            points: 1,
-        }),
-        fill: new Fill ({
-            color: '#F8E47340',
-        }),
-        stroke: new Stroke ({
-            color: '#7F00FF', width: 2
-        }),
+const polygonStyle = (): Style => {
+    return new Style({
+      image: new RegularShape({
+        points: 1,
+      }),
+      fill: new Fill({
+        color: '#F8E47340',
+      }),
+      stroke: new Stroke({
+        color: '#7F00FF',
+        width: 2
+      }),
     });
-};
+  };
 
 const civilDefenseLayer = new VectorLayer ({
     source: civilDefenseSource,
@@ -42,7 +44,7 @@ const civilDefenseLayer = new VectorLayer ({
 
 
 //Creates a new layer when checked which shows the different civil defense lines, also removes the layer once it is unchecked instead of making it hidden.
-export function civilDefenseLayerCheckbox({
+export function useCivilDefenseLayerCheckbox({
     map,
     setLayers,
     layers,
@@ -79,8 +81,8 @@ export function civilDefenseLayerCheckbox({
         } else {
             setSelectedCivilDefense(undefined);
             overlay.setPosition(undefined);
-        };
-    };
+        }
+    }
 
     useEffect(() => {
         if (checked && !layers.includes(civilDefenseLayer)) {
@@ -105,4 +107,4 @@ export function civilDefenseLayerCheckbox({
     );
 }
 
-export default civilDefenseLayerCheckbox
+export default useCivilDefenseLayerCheckbox
