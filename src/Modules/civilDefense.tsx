@@ -6,6 +6,7 @@ import {GeoJSON} from "ol/format"
 import {Feature, Map, MapBrowserEvent, Overlay} from "ol"
 import {Polygon} from "ol/geom"
 import { RegularShape, Stroke, Style, Fill } from "ol/style";
+import React from "react";
 
 type civilDefenseProperties = {
         navn: string,
