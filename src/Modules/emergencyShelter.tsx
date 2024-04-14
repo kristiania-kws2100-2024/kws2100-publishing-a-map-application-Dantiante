@@ -7,7 +7,6 @@ import {Feature, Map, MapBrowserEvent, Overlay} from "ol";
 import {Point} from "ol/geom";
 import { Circle, Style, Fill, Stroke, RegularShape, Text} from "ol/style";
 import { FeatureLike } from "ol/Feature";
-import React from "react";
 
 type emergencyShelterProperties = {   
     romnr: number,
