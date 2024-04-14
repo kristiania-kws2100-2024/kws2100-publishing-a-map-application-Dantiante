@@ -47,6 +47,8 @@ export function App() {
         <h1 className="header">Map application</h1>
       </header>
 
+      Hellow world!
+
       <nav className="navBar">
         Actions:
         {useCivilDefenseLayerCheckbox({ map, setLayers, layers })}
