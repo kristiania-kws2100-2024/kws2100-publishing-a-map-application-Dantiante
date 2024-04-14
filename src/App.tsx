@@ -7,6 +7,7 @@ import { OSM } from "ol/source";
 import { useGeographic } from "ol/proj";
 import { useEmergencyShelterCheckbox } from "./Modules/emergencyShelter";
 import { useCivilDefenseLayerCheckbox } from "./Modules/civilDefense";
+import React from "react";
 
 // For some reason, no matter how I put it, it was either, start in the center of the map,
 // or the handleClicks/hover for the checkbox' did not work, so I chose to put it in the center of the world
