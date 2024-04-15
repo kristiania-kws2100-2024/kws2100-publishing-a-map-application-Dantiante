@@ -7,6 +7,7 @@ import {Feature, Map, MapBrowserEvent, Overlay} from "ol"
 import {Polygon} from "ol/geom"
 import { RegularShape, Stroke, Style, Fill } from "ol/style";
 
+
 type civilDefenseProperties = {
         navn: string,
 };
@@ -16,7 +17,7 @@ type civilDefenseFeature = Feature<Polygon> & {
 };
 
 const civilDefenseSource = new VectorSource<civilDefenseFeature>({
-    url: "/Sivilforsvarsdistrikter.geojson",
+    url: "/kws2100-publishing-a-map-application-Dantiante/Sivilforsvarsdistrikter.geojson",
     format: new GeoJSON(),
 });
 

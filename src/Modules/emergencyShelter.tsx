@@ -8,6 +8,7 @@ import {Point} from "ol/geom";
 import { Circle, Style, Fill, Stroke, RegularShape, Text} from "ol/style";
 import { FeatureLike } from "ol/Feature";
 
+
 type emergencyShelterProperties = {   
     romnr: number,
     plasser: number,
@@ -19,7 +20,7 @@ type emergencyShelterFeature = Feature<Point> & {
 };
 
 const emergencyShelterSource = new VectorSource<emergencyShelterFeature>({
-    url: "/Offentlige_tilfluktsrom.geojson",
+    url: "/kws2100-publishing-a-map-application-Dantiante/Offentlige_tilfluktsrom.geojson",
     format:new GeoJSON(),
 });
 

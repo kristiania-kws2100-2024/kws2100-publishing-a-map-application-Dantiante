@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "/kws2100-publishing-a-map-application-Dantiante/",
   "scripts": {
     "dev": "vite",
     "build": "npm test && vite build",
@@ -10,7 +11,9 @@
     "prepare": "husky",
     "test": "prettier --check . && tsc --noEmit",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "ol": "^8.2.0",
@@ -26,6 +29,7 @@
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "gh-pages": "^6.1.1",
     "husky": "^9.0.11",
     "prettier": "^3.2.5",
     "typescript": "^5.3.3",
