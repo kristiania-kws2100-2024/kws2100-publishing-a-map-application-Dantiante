@@ -8,12 +8,11 @@ import { useGeographic } from "ol/proj";
 import { useEmergencyShelterCheckbox } from "./Modules/emergencyShelter";
 import { useCivilDefenseLayerCheckbox } from "./Modules/civilDefense";
 
+useGeographic();
 
-// For some reason, no matter how I put it, it was either, start in the center of the map,
-// or the handleClicks/hover for the checkbox' did not work, so I chose to put it in the center of the world
 const view = new View({
-  center: [58, 19],
-  zoom: 5,
+  center: [5.348, 60.386],
+  zoom: 12,
 });
 
 const map = new Map({
