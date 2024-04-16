@@ -8,6 +8,7 @@ import { useGeographic } from "ol/proj";
 import { useEmergencyShelterCheckbox } from "./Modules/emergencyShelter";
 import { useCivilDefenseLayerCheckbox } from "./Modules/civilDefense";
 import "ol/ol.css"
+
 useGeographic();
 
 const view = new View({
