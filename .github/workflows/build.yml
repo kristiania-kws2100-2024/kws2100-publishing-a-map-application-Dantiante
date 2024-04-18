@@ -3,7 +3,7 @@ name: Norway, Small Map Application
 on:
   push:
     branches:
-      - main
+      - main-with-feedback
 
 jobs:
   publish:
