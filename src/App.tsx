@@ -11,8 +11,6 @@ import "ol/ol.css"
 
 useGeographic();
 
-/**/
-
 const view = new View({
   center: [5.348, 60.386],
   zoom: 12,
