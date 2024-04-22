@@ -70,20 +70,20 @@ export function useCivilDefenseLayerCheckbox({
     >();
 
     function handleClick(e: MapBrowserEvent<MouseEvent>) {
-        const clickedCivilDefense = civilDefenseSource.getFeaturesAtCoordinate(
-            e.coordinate,
-        ) as civilDefenseFeature[];
-        if (clickedCivilDefense.length === 1) {
-            setSelectedCivilDefense(clickedCivilDefense[0]);
+        const pixel = map.getEventPixel(e.originalEvent);
+        const feature = map.forEachFeatureAtPixel(pixel, (f) => f) as civilDefenseFeature;
+    
+        if (feature) {
+            setSelectedCivilDefense(feature);
             overlay.setPosition(e.coordinate);
-
-            console.log(e. coordinate)
-            console.log(clickedCivilDefense[0].getProperties().navn)
+            console.log(e.coordinate);
+            console.log(feature.getProperties().navn);
         } else {
             setSelectedCivilDefense(undefined);
             overlay.setPosition(undefined);
         }
     }
+    
 
     useEffect(() => {
         if (checked && !layers.includes(civilDefenseLayer)) {
