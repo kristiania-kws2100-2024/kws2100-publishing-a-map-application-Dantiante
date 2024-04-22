@@ -27,3 +27,4 @@ dist-ssr
 *.js
 *Ignore TypeScript output files
 *.js.map
+/src/App.tsx
