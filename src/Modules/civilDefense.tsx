@@ -64,7 +64,7 @@ export function useCivilDefenseLayerCheckbox({
         return () => {
             map.removeOverlay(overlay);
         };
-    }, []);
+    }, [map, overlay]);
     const [,setSelectedCivilDefense] = useState<
     civilDefenseFeature | undefined
     >();
@@ -93,7 +93,7 @@ export function useCivilDefenseLayerCheckbox({
             map.un("click", handleClick);
             setLayers((old) => old.filter((a) => a !== civilDefenseLayer));
         }
-    }, [checked]);
+    }, [checked, handleClick, layers, map, setLayers]);
 
     return (
         <div>
