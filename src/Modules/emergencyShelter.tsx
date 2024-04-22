@@ -125,7 +125,7 @@ export function useEmergencyShelterCheckbox({
             setLayers((old) => old.filter((a) => a !== emergencyShelterLayer));
             setSelectedFeature(null);
         }
-    }, [checked, layers, emergencyShelterLayer, setLayers]);
+    }, [checked, layers, setLayers]);
 
     return (
         <div className="emergencyShelterOverlay">
