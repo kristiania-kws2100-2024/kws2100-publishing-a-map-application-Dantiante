@@ -26,10 +26,7 @@ const map = new Map({
 });
 
 export function App() {
-  useGeographic();
-
   
-
   const [layers, setLayers] = useState<Layer[]>([
     new TileLayer({ source: new OSM() }),
   ]);
